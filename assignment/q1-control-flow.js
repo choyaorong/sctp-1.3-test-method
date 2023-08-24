@@ -10,6 +10,20 @@
 const env = "DEV"; // Toggle between these possible values "DEV" | "STAGE" | "PROD"
 let databaseCredential = "devuser:password";
 
+
+
 // Task: Add code here
+const env_dict = {
+    DEV:"devuser:password",
+    STAGE:"stageuser:password",
+    PROD:"produser:password"
+}
+
+for (const [key, value] of Object.entries(env_dict))
+{
+    if (env === key){
+        databaseCredential = value;
+    }
+}
 
 console.log(`Database credential for environment ${env} is ${databaseCredential}`);
